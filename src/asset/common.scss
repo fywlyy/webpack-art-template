@@ -1,0 +1,108 @@
+//屏幕比例
+$scale : 0.714285;
+//主题默认前景色
+$font-default-color:#f73352;
+//主题默认主色调
+$theme-default-color:#f73352;
+//主题主色调全局hover颜色
+$theme-default-hover-color:#e31f3e;
+//内页layout padding
+$content-default-padding:0px * $scale;
+//外部主框架相对body padding值
+$layout-default-padding:57px * $scale;
+//屏幕最小宽度
+$layout-min-width:1200px;
+//屏幕最大宽度
+$layout-max-width:1600px;
+//表格头部颜色
+$table-header-bg-color:#e1e9f4;
+//表格外部边框色
+$table-border-color:#eee;
+//表格td边框色
+$td-border-color:#eee;
+//表格默认最小列宽
+$table-column-min-width:100px;
+//输入框边框色
+$theme-input-border-color:#c1c1c1;
+//输入框内阴影颜色
+$theme-input-shadow:rgba(165,165,165,.3);
+//表单元素字体颜色
+$theme-form-default-color:#818181;
+//表格内部链接文字默认色
+$table-inset-font-color:$theme-default-color;
+/*panel背景颜色*/
+$theme-panel-bg-color:#fafafa;
+/*panel默认边框色*/
+$theme-panel-border-color:#c9c9c9;
+/*初始化一系列样式(图片，warning，error，danger，normal，button)*/
+.warning{
+  color: #ff731f;
+  font-weight: bold;
+}
+.price{
+  color: #e8e8e8;//**
+}
+.danger{
+  color: red;
+}
+.normal{
+  color: #535353;
+}
+.green{
+  color:#00c36a;
+}
+$baseColor:#59381d;
+
+/*
+ *圆角mixins
+ *params radius deg
+ */
+@mixin border-radius($radius:5px){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin element-transition(){
+  -webkit-transition:all .5s ease-in-out;
+  -moz-transition:all .5s ease-in-out;
+  -o-transition:all .5s ease-in-out;
+  -ms-transition:all .5s ease-in-out;
+  transition:all .5s ease-in-out;
+}
+@mixin box-shadow($x,$y,$size,$color,$inset){
+  -webkit-box-shadow:$x $y $size $color $inset;
+  -moz-box-shadow:$x $y $size $color $inset;
+  -o-box-shadow:$x $y $size $color $inset;
+  -ms-box-shadow:$x $y $size $color $inset;
+  box-shadow:$x $y $size $color $inset;
+}
+@mixin box-shadow-outset($x,$y,$size,$area,$color){
+  -webkit-box-shadow:$x $y $size $area $color;
+  -moz-box-shadow:$x $y $size $area $color;
+  -o-box-shadow:$x $y $size $area $color;
+  -ms-box-shadow:$x $y $size $area $color;
+  box-shadow:$x $y $size $area $color;
+}
+@mixin box-sizing(){
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@mixin ellipsis($rows:2){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-wrap: break-word;
+  -webkit-line-clamp: $rows;
+  -webkit-box-orient: vertical;
+}
+@mixin ellipsis1(){
+  word-wrap: break-word;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

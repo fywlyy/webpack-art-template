@@ -1,0 +1,48 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/main.js",
+  "scripts": {
+    "start": "webpack -w --watch",
+    "build": "webpack -p --config webpack.production.config.js"
+  },
+  "keywords": [
+    "artTemplate",
+    "es6"
+  ],
+  "author": "xiongpeng",
+  "license": "MIT",
+  "dependencies": {
+    "art-template": "^4.12.1",
+    "art-template-loader": "^1.4.3",
+    "babel": "^6.5.2",
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-es3-property-literals": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.9.0",
+    "director": "^1.2.8",
+    "echarts": "^3.6.2",
+    "es3ify-loader": "^0.2.0",
+    "es6-promise": "^3.2.1",
+    "extract-text-webpack-plugin": "^3.0.1",
+    "html-webpack-plugin": "^2.29.0",
+    "underscore": "^1.8.3",
+    "webpack": "^3.6.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.3",
+    "json-loader": "^0.5.4",
+    "node-sass": "^4.7.2",
+    "sass": "^0.5.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
+    "url-loader": "^0.5.7",
+    "webpack-vendor-chunk-plugin": "^1.0.0"
+  }
+}

@@ -1,0 +1,99 @@
+<div class="ts-table-ctt">
+    <table id="{{tableId}}" cellspacing="0" cellpadding="0">
+        {{if tHeader && tHeader.length > 0}}
+        <thead>
+        <tr>
+            {{each tHeader as header index0}}
+            {{if header.INDEX}}
+            <th class="table-index">
+                <span class="ts-theader-index">
+                    序号
+                </span>
+            </th>
+            {{else}}
+            <th title="{{header.title}}" style="width: {{header.width || '100px'}}">
+                <span class="ts-theader">
+                    {{header.title}}
+                </span>
+            </th>
+            {{/if}}
+            {{/each}}
+        </tr>
+        </thead>
+        {{/if}}
+        <tbody>
+        {{if data && data.length > 0}}
+        {{each data as tb index1}}
+        <tr>
+            {{each tHeader as header1 index2}}
+            {{if header1.hasFunc}}
+            <td class="ts-table-hasop {{header1.bodyCss}}">
+                {{if !header1.funcList && header1.handler
+                && header1.handler(tb)
+                && header1.handler(tb).length > 0}}
+                {{if header1.handler(tb).length == 1}}
+                <a class="ts-table-htt {{header1.handler(tb)[0].cls}}"
+                   href="javascript:void(0);"
+                   data-objs='{{formatObj(header1.handler(tb)[0],tb)}}'>{{header1.handler(tb)[0].name}}</a>
+                {{else}}
+                <div class="ts-table-ops" >
+                    <ul>
+                        {{each header1.handler(tb) as func index3}}
+                        <li class="ts-table-op {{func.cls}}">
+                            <a href="javascript:void(0);"
+                               data-objs='{{formatObj(func,tb)}}'
+                               class="ts-table-operate ">{{func.name}}</a>
+                            {{if index3 == 0}}
+                            <i class="iconfont icon-xiala"></i>
+                            {{/if}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/if}}
+                {{/if }}
+                {{if header1.funcList && header1.funcList.length > 0}}
+                {{if header1.funcList.length == 1}}
+                <a class="ts-table-htt {{header1.funcList[0].cls}}"
+                   href="javascript:void(0);"
+                   data-objs='{{formatObj(header1.funcList[0],tb)}}'>{{header1.funcList[0].name}}</a>
+                {{else}}
+                <div class="ts-table-ops" >
+                    <ul>
+                        {{each header1.funcList as func index3}}
+                        <li class="ts-table-op {{func.cls}}">
+                            <a href="javascript:void(0);"
+                               data-objs='{{formatObj(func,tb)}}'
+                               class="ts-table-operate ">{{func.name}}</a>
+                            {{if index3 == 0}}
+                            <i class="iconfont icon-xiala"></i>
+                            {{/if}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/if}}
+                {{/if}}
+            </td>
+            {{/if}}
+            {{if header1.INDEX}}
+            <td class=" {{header1.bodyCss}}">
+                {{index1 + 1}}
+            </td>
+            {{/if}}
+            {{if !header1.INDEX && !header1.hasFunc}}
+            <td class="{{header1.bodyCss}}" title="{{header1.handler(tb[header1.name], tb, index1, index2)}}">
+                {{header1.handler(tb[header1.name], tb, index1, index2)}}
+            </td>
+            {{/if}}
+            {{/each}}
+        </tr>
+        {{/each}}
+        {{else}}
+        <tr>
+            <td colspan="{{tHeader.length}}" style="text-align: center">暂无数据</td>
+        </tr>
+        {{/if}}
+        </tbody>
+    </table>
+</div>
